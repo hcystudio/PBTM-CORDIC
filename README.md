@@ -52,7 +52,7 @@ The generation procedure follows a strict logical flow corresponding to the sect
 
 ## How to Run
 
-1. **Environment**: MATLAB R2021b or later (requires Fixed-Point Designer).
+1. **Environment**: MATLAB R2022b or later (requires Fixed-Point Designer).
 2. **Execution Order**:
 * Run `search_rounding_boundary.m` first. This generates the necessary boundary parameters.
 * Run `create_PBT.m`. This will load the parameters, build the tree, and output the hardware configuration.
