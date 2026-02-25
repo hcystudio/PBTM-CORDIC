@@ -147,50 +147,6 @@ if(~exist([arctype '_coe_files_M' num2str(M)], "dir"))
     mkdir([arctype '_coe_files_M' num2str(M)]);
 end
 
-% Boundary Table
-% fid_comb_table = fopen(['./' arctype '_coe_files_M' num2str(M) '/bound_tab_k' num2str(k) '.coe'], 'w');
-% fprintf(fid_comb_table, 'memory_initialization_radix=2;\nmemory_initialization_vector=');
-% for i = 1:length(tab_Is)
-%     str_idx = tab_Is(i);
-%     if(str_idx == 0)
-%         str_idx = 512;
-%     end
-%     if(length(tab_bmid{str_idx}) < max_len_str)
-%         str_temp = [repmat('0', [1 max_len_str-length(tab_bmid{str_idx})]) tab_bmid{str_idx}];
-%     else
-%         str_temp = tab_bmid{str_idx};
-%     end
-%     fprintf(fid_comb_table, '%s,\n', [dec2bin(tab_Is(i)-1, k) str_temp]); % Note1
-% end
-% lut_depth_B = ceil(length(tab_Is)/LUT_depth_base)*LUT_depth_base;
-% for i = length(tab_Is):lut_depth_B
-%     fprintf(fid_comb_table, [repmat('0', [1 max_len_str+k]) '\n']);
-% end
-% fprintf(fid_comb_table, ';');
-% 
-% fclose(fid_comb_table);
-% fprintf('LUT(Boundary Table) Config-Width x Depth: %d, %d\n', max_len_str+k, lut_depth_B);
-
-
-
-% Leaf Node Table
-% fid_comb_table = fopen(['./' arctype '_coe_files_M' num2str(M) '/Leaf_Node_Tab.coe'], 'w');
-% fprintf(fid_comb_table, 'memory_initialization_radix=2;\nmemory_initialization_vector=');
-% for i = 1:length(head_table)
-%     str_idx = head_table(i);
-%     if(str_idx == 0)
-%         str_idx = 512;
-%     end
-%     if(length(str_table{str_idx}) < max_len_str)
-%         str_temp = [repmat('0', [1 max_len_str-length(str_table{str_idx})]) str_table{str_idx}];
-%     else
-%         str_temp = str_table{str_idx};
-%     end
-%     fprintf(fid_comb_table, '%s,\n', [dec2bin(head_table(i)-1, 9) str_temp]);
-% end
-% fprintf(fid_comb_table, ';');
-
-
 % Solution Space Table
 tab_depth = length(dd_table);
 tab_phi = cast(zeros(1, tab_depth), 'like', p_current_phi);
@@ -217,6 +173,7 @@ for i = tab_depth+1:lut_depth_SP
 end
 fprintf(fid_SP_table, ';');
 fclose(fid_SP_table);
+fprintf('LUT(Leaf Node Table) Config-Width x Depth: %d, %d\n', w_frac+k-13, length(Boundary_table));
 fprintf('LUT(Solution Space Table) Config-Width x Depth: %d, %d\n', width_SP, lut_depth_SP);
 
 %% Fixed Design

@@ -143,7 +143,6 @@ plot(dd_table);
 dd_table_new = dd_table;
 intlv_table_new = intlv_table;
 save(['invc_param_k' num2str(k) '.mat'], "dd_table", "intlv_table");
-% load("invc_tab_param.mat", "dd_table", "intlv_table");
 
 for ii = 1:length(intlv_table_fixed)
     fprintf([bin(intlv_table_fixed(ii)) ' ' num2str(ii-1)  '\n']);
