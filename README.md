@@ -1,5 +1,7 @@
 # PBTM-CORDIC: Prefix Binary Tree Mapping and Table Generation
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18780760.svg)](https://doi.org/10.5281/zenodo.18780760)
+
 This repository provides the MATLAB implementation for the **Prefix Binary Tree Mapping (PBTM)** algorithm, as described in the paper *"CORDIC-based Computation of Arcsine/Arccosine Integrated with Prefix Binary Tree Mapping"* (submitted to IEEE TCAS-II).
 
 ## Project Overview
